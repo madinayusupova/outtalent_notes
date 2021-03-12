@@ -7,15 +7,15 @@
 
 ## Linked List
 * Each element in array stores value and index, while in linked list each element stores value and reference to the next element
-* when you insert new element into linked list, firstly add link from new element to next one, before link from previous to new. so you don't lose a reference
-* insertion, deletion - O(1)
+* When you insert new element into linked list, firstly add link from new element to next one, before link from previous to new. so you don't lose a reference
+* Insertion, deletion - O(1)
 * Doubly linked list - where you have pointers to the next element and the previuos element
 
 ## Stacks
 *  You put elements on top and remove or look at the top element
 *  Useful when you care about only recent elements or the order in which you see and save elements matters
 *  Add element = push, Remove = pop
-*  in python we can use linked list to implement stack 
+*  In python we can use linked list to implement stack 
 *  L.I.F.O. = Last In, First Out
 
 ## Queues
@@ -36,3 +36,6 @@
     * If elements have the same priority, the oldest one is dequeued first
     
 
+# Lesson 3
+## Binary Search
+* 

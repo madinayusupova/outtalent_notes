@@ -38,4 +38,29 @@
 
 # Lesson 3
 ## Binary Search
-* 
+* Efficiancy O(log n)
+* Only for ordered list 
+
+## Recursion
+* Function that call itself at some point, and have a base case.
+* At some moment it should alter input parameter
+
+## Sorting
+* Recursive functions
+   ### Bubble Sort
+    * Sinking Sort or Naive Approach
+    * O(n^2) efficiency
+    * Great example of in-place data sorting algorithm
+    * Space complexity = O(1)
+    
+   ### Merge Sort
+   * Break up array and sort all the parts and build it back
+   * **Divide and Conquer**
+   * Efficiency O(nlogn)
+   * Auxillary Space = O(n) (extra space memory)
+   
+   ### Quick Sort
+   * One of the most efficient sorting algorithms 
+   * Worst case - O(n^2), Average - O(nlogn)
+   * 
+    

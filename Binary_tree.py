@@ -58,3 +58,76 @@ print tree.search(6)
 # Test print_tree
 # Should be 1-2-4-5-3
 print tree.print_tree()
+
+
+
+
+"""This time, you'll implement search() and insert(). 
+You should rewrite search() and not use your code from the 
+last exercise so it takes advantage of BST properties. """
+
+
+
+
+
+
+
+
+
+
+class Node(object):
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+class BST(object):
+    def __init__(self, root):
+        self.root = Node(root)
+
+    def insert(self, new_val):
+        return self.ins(self.root, new_val)
+        
+    def ins(self, parent, chld):
+        if parent.value>chld:
+            if parent.left == None:
+                parent.left == Node(chld)
+                return
+            else:
+                return self.ins(parent.left, chld)
+                
+        elif parent.value < chld:
+            if parent.right == None:
+                parent.right == Node(chld)
+                return
+            else:
+                return self.ins(parent.right, chld)
+
+    def search(self, find_val):
+        return self.sch1(self.root, find_val)
+    
+    def sch1(self, val, f):
+        if val:
+            if val.value == f:
+                return True
+            if val.value>f:
+                return self.sch1(val.left, f)
+            elif val.value<f:
+                return self.sch1(val.right, f)
+        else:
+            return False
+    
+# Set up tree
+tree = BST(4)
+
+# Insert elements
+tree.insert(2)
+tree.insert(1)
+tree.insert(3)
+tree.insert(5)
+
+# Check search
+# Should be True
+print tree.search(4)
+# Should be False
+print tree.search(6)

@@ -62,5 +62,74 @@
    ### Quick Sort
    * One of the most efficient sorting algorithms 
    * Worst case - O(n^2), Average - O(nlogn)
-   * 
+   * In-place
+  
+  
+# Lesson 4
+## Maps
+* Key - value relation (ex/ dictionary)
+* Set - unordered list with unique elements
+* Map is a set-based data structure 
+* A group of keys is a set- keys are unique
+
+## Hash Function
+* Hash function allows you to do look-ups in constant time 
+* The purpose of HF is to transform value into one (index of a array) that can be stored and retrieved easily.
+*  Ex/ Storing a ticket in array with index(reminder of last 2 digits/10)
+*  **Collisions** - same hash value for 2 different inputs :(
+    * 2 ways to solve this: Change the /# in hash function 
+    * Or change hash function completely
+    * Ex/ Change the structure of array. Save a list of values in slot, not 1 element only 
+    * *Bucket* - a slot where you store a **Collcetion** of values
+    * In Bucket system, look up time in worst case turns into O(m) - m is length of bucket array
+    * There is NO one perfect way to desighn a hash function
+    * Ideally - 1-3 element in each bucket
+    * Creative - using 2nd hash function inside of a large bucket - works well if you know you're going to have a well spread out data
+   
+## Hash Maps
+* Maps have keys and values, Key is an input to hash function to store <k,v> pair
+* Keys are unique, use them to arrange unique bucket
+* A Python dictionary is a map!
+    ### String Keys
+    * ASCII -> letters converted to numbers
+    * For <30 words you can use ascii of first letter of the word
+
+# Lesson 5
+## Trees
+* Extension of Linked List
+* First element - root
+* Has a few next elements
+* Each element in a tree that contain values are called **nodes**
+* Constrain#1: A tree must be completely connected
+* Cons#2: No any cycles, Cycle - way to came to the same node twice
+    #### Tree terms:
+    * Root - **Level 1** *Parent*, Directly connected nodes - level 2 *Child*
+    * Root - Ancestor, level 3 - Descendant (потомок)
+    * Nodes with no children called - **Leaves** or external nodes
+    * Parent - internal node
+    * Connection - edge
+    * Group of connections - path
+    * **Height** of the node - number of edges between it and the furthest leaf on the tree
+    * Leaves' height is 0, his parent = 1
+    * **Depth** of a node - number of edges to the root
+    * Height and Depth should move inversely
+    * Height of the tree = height of the root
     
+* Tree Traversal (обход) (look at every element)   
+* 1. DFS - Depth-First Search - if there are children nodes to explore, exploring them is priority 
+        * Pre-Order Traversal - check off a node as you see it before you traverse a tree. Root -> LeftChild -> LeftChild (leaf)-> Right Child 
+        * In-Order Traversal - from the left most to right, from left leaf toward root etc. from root you find left most, and start there, finish one left parent with all children, after that move to the root and right child
+        * Post-Order Traversal - From root you find left most, and start there, check left one, move from parent to right one. when all descendants done, check parent. So last element in this way is the Root 
+ * 2. BFS - Breadth-First Dearch - priority is visiting every node on the same level, before visiting child nodes- Level order, from left to right
+
+### Binary trees
+* Trees with at most 2 children 
+*  Children can be null
+*  Search O(n)
+*  Delete O(n) - since you are searching the way to shift children
+*  Insert
+*  Number of nodes on each level equivalent to a power of 2
+
+### Binary Search Tree
+* Binary tree with rule, that element on left of node is smaller than it, and on right is bigger than it.
+*  

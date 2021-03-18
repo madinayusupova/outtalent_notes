@@ -122,16 +122,61 @@
         * Post-Order Traversal - From root you find left most, and start there, check left one, move from parent to right one. when all descendants done, check parent. So last element in this way is the Root 
  * 2. BFS - Breadth-First Dearch - priority is visiting every node on the same level, before visiting child nodes- Level order, from left to right
 
-### Binary trees
-* Trees with at most 2 children 
-*  Children can be null
-*  Search O(n)
-*  Delete O(n) - since you are searching the way to shift children
-*  Insert
-*  Number of nodes on each level equivalent to a power of 2
+    ### Binary trees
+    * Trees with at most 2 children 
+    *  Children can be null
+    *  Search O(n)
+    *  Delete O(n) - since you are searching the way to shift children
+    *  Insert
+    *  Number of nodes on each level equivalent to a power of 2
 
-### Binary Search Tree
-* Binary tree with rule, that element on left of node is smaller than it, and on right is bigger than it.
-* Average search = O(logn)
-*  BSTcan be unbalanced (ex/ all elements on right side 5>8>23>56)
-*  Unbalanced BST - worst case scenario O(n)
+    ### Binary Search Tree
+    * Binary tree with rule, that element on left of node is smaller than it, and on right is bigger than it.
+    * Average search = O(logn)
+    *  BSTcan be unbalanced (ex/ all elements on right side 5>8>23>56)
+    *  Unbalanced BST - worst case scenario O(n)
+    
+    
+    ### Heaps
+    * Elements are arranged in decreasing or increasing order, so that root is either maximum (*Max Heaps*) or minimum number (*Min Heaps*) in the tree
+    * In a Max Heap, a parent must always be greater than its child
+    * Opposite in min heap
+    * Heaps may not be binary, can have more than 2 children
+    * Max Binary Heap (MBH):
+    * Binary heap must be "COMPLETE" - all levels except last one should be full
+    * If last level isn't totally full, values are added from left to right 
+    *  The right most leaf will be empty until the whole row has been filled
+    *  Max value function called PEEK - O(1)
+    
+    *  Search - O(n)
+    *  Insert - insert in available place in the tree and **Heapify**
+    *  Heapify - heap property - in MBH parent should be bigger than it's child, so keep compairing new element with parent and  swap them when child is bigger
+    *  Extract - similar approach,  if root is removed, we put there rightmost leaf, compare to the children and swap where necessary 
+    *  Insert, Delete- average O(logn), worst O (height of tree)
+    * **Heap Implementation** - often stored in array (Binary heaps)
+    *  _Sorted_ array can be a heap. Each level on the tree is twice as big as the one before it.
+    *  Saving data in array store memory, no need to save pointers
+
+
+    ### Red - Black Trees
+    * Balanced tree has a few levels, while unbalanced spread to many levels
+    * Extreme unbalanced tree - Linked List
+    * *Self-Balancing tree* is one that tries to minimize the number of levels that it uses
+    * It does some algorithm during insertion and deletion to keep itself balanced 
+    * **Red-Black Tree** - BST
+    * 1. Each node either black or red
+    * 2. Every node in tree that doesn't have two leaves MUST have null children
+    * Null leaves are colored black 
+    * 3. Red node should have BOTH children null leaves
+    * 4. Root should be black 
+    * 5. Every path from a node to its descendant null nodes must contain the same number of black nodes
+    * Red-Black Trees also should follow the rules of Binary Search Trees
+    * Case1. When you insert first element to the tree - root, you can color it black according to the rule 4., all other insertions are red
+    * Case2.If you add the node, and the parent is black, everything is ok
+    * Case3. If you add a new node and the parent is red: if parent and its sibling are both red, then they should be changed to black, and Grandparent become RED (unless its not a root).
+    * Case4. Elif, parent is red, but its subling is black. You need to perform a **Rotation**. if Child and Parent are not on the same side if their parents, you rotate them so both left (or right?). that is case5.
+    * Case5. Red Node and its Red parent are on the same side of their parents. Rotate Grand Parent > Parent >Child to the form Child < Parent > Grand Parent. Also swap colors. 
+    * ^ The nodes are rearranged without changing the number of black nodes in any path
+    * Those are all 5 cases that could arise in insertion
+    *   Search and Delete - in average O(logn) and worst cases also!
+    * 

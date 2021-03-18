@@ -91,14 +91,14 @@ class BST(object):
     def ins(self, parent, chld):
         if parent.value>chld:
             if parent.left == None:
-                parent.left == Node(chld)
+                parent.left = Node(chld)
                 return
             else:
                 return self.ins(parent.left, chld)
                 
         elif parent.value < chld:
             if parent.right == None:
-                parent.right == Node(chld)
+                parent.right = Node(chld)
                 return
             else:
                 return self.ins(parent.right, chld)

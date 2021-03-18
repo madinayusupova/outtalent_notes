@@ -132,4 +132,6 @@
 
 ### Binary Search Tree
 * Binary tree with rule, that element on left of node is smaller than it, and on right is bigger than it.
-*  
+* Average search = O(logn)
+*  BSTcan be unbalanced (ex/ all elements on right side 5>8>23>56)
+*  Unbalanced BST - worst case scenario O(n)

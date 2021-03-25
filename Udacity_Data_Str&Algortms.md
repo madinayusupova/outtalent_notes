@@ -116,10 +116,10 @@
     * Height of the tree = height of the root
     
 * Tree Traversal (обход) (look at every element)   
-* 1. DFS - Depth-First Search - if there are children nodes to explore, exploring them is priority 
-        * Pre-Order Traversal - check off a node as you see it before you traverse a tree. Root -> LeftChild -> LeftChild (leaf)-> Right Child 
-        * In-Order Traversal - from the left most to right, from left leaf toward root etc. from root you find left most, and start there, finish one left parent with all children, after that move to the root and right child
-        * Post-Order Traversal - From root you find left most, and start there, check left one, move from parent to right one. when all descendants done, check parent. So last element in this way is the Root 
+* 1. _DFS - Depth-First Search_ - if there are children nodes to explore, exploring them is priority 
+        * _Pre-Order Traversal_ - check off a node as you see it before you traverse a tree. Root -> LeftChild -> LeftChild (leaf)-> Right Child 
+        * _In-Order Traversal_ - from the left most to right, from left leaf toward root etc. from root you find left most, and start there, finish one left parent with all children, after that move to the root and right child
+        * _Post-Order Traversal_ - From root you find left most, and start there, check left one, move from parent to right one. when all descendants done, check parent. So last element in this way is the Root 
  * 2. BFS - Breadth-First Dearch - priority is visiting every node on the same level, before visiting child nodes- Level order, from left to right
 
     ### Binary trees
@@ -194,14 +194,14 @@
 * Cycles might leed to infinite loops, so when you take a graph as an input, be sure that its acyclic- has no cycles
 * **DAG** - Directed Acyclic graph 
 * **Connectivity**
-        * **Disconnected graph** - has some vertex, that can't be reached by others vertices, one vertex off with no edges
-        * Disconnected graphs are very similar whether the graph's directed or undirected—there is some vertex or group of vertices that have no connection with the rest of the graph
-        * In graphs some nodes may not be connected at all or connected components (2 mini graphs with no connection between each other)
-        * **Connected** graph has no disconnected vertices 
-        *  Connectivity Principle - minimum number of elements that need to be removed to make a graph disconnceted 
-        *  Use connectivy to answer the questions which graph is stronger
-        *  **Weakly Connected** - A directed graph is weakly connected when only replacing all of the directed edges with undirected edges can cause it to be connected. Imagine that your graph has several vertices with one outbound edge, meaning an edge that points from it to some other vertex in the graph. There's no way to reach all of those vertices from any other vertex in the graph, but if those edges were changed to be undirected all vertices would be easily accessible.
-        * **Strongly Connected** Strongly connected directed graphs must have a path from every node and every other node. So, there must be a path from A to B AND B to A.
+    * **Disconnected graph** - has some vertex, that can't be reached by others vertices, one vertex off with no edges
+    * Disconnected graphs are very similar whether the graph's directed or undirected—there is some vertex or group of vertices that have no connection with the rest of the graph
+    * In graphs some nodes may not be connected at all or connected components (2 mini graphs with no connection between each other)
+    * **Connected** graph has no disconnected vertices 
+    *  Connectivity Principle - minimum number of elements that need to be removed to make a graph disconnceted 
+    *  Use connectivy to answer the questions which graph is stronger
+    *  **Weakly Connected** - A directed graph is weakly connected when only replacing all of the directed edges with undirected edges can cause it to be connected. Imagine that your graph has several vertices with one outbound edge, meaning an edge that points from it to some other vertex in the graph. There's no way to reach all of those vertices from any other vertex in the graph, but if those edges were changed to be undirected all vertices would be easily accessible.
+    * **Strongly Connected** Strongly connected directed graphs must have a path from every node and every other node. So, there must be a path from A to B AND B to A.
 * **Graph Representation**
 * We can use OOP's, Classes, and create Vertex and Edge objects
 * There are several ways to represent connections on simple graphs using lists
@@ -215,6 +215,25 @@
 *   List inside represents which nodes are adjacent. Inner list has one slot for every node in the array, if theres an adge between these two nodes a 1 goes into the array, if no edge 0
 *   Place on every line where the row number equals the column number is always 0, unless there is an edge that started and ended with the same node
 *   In matrix 1 edge shows up twice (2, 3)(3, 2)
+
+### Graph Traversal 
+* 2 basic methods for traversal 
+* DFS - Deapth First Search - follow one path as far as it'll go
+* BFS - Breadth First Search - look to all the nodes adjacent to one before moving to the next level 
+*  Graph Traversal almost the same thing as Graph Search. Traversal - go through every element, Search - stop traversing when you find element you are looking for.
+*  In graph no root, no obvious place to start traversing, so you begin with any nood
+*  Common implementation of **DFS** - **Stack** - see 1 node, store in Stack, pick an edge, follow it, check one more node +  add it to the stack. Keep repeating. When you hit a node, that you've seen before, just go back to prev node and try another edge. If no edges left, pop the current node from stack and go back to the one before it. Continue this approach, until you've popped everything off the stack. 
+* Another common implementation of **DFS** - **Recursion** no stack - Repeat the same process of picking an edge and marking a node as seen, until you run out of new nodes to explore. That becomes the base to the last level of recursion, and you move back to the last level of recursion, which is previuos node in the search.
+* In this algorithm we visit every edge and every node O(|2e|+|V|) ~ O(|e|+|V|)
+* **BFS** - also visiting every node and marking off every node, But we search every edge of one node, before continuing on through the graph 
+* We start with first node, mark it "seen", visit adjacent node, mark it, add it to QUEUE (first in, first out) , we go back to that first node and visit everything adjacent, marking each seen and adding them to queue. When we've run out of edges we can just dequeue a node from the queue and use it as next starting place. We again look at every node adjacent to that one, add each one to the queue, until no options will left
+* BFS is like creating tree from a graph, where starting node becomes a root. Adjacent nodes is the next level nodes in the tree.
+* Efficiency O(|e|+|V|)
+* 
+* 
+
+
+
 
 
 

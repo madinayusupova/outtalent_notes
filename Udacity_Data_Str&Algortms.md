@@ -179,4 +179,52 @@
     * ^ The nodes are rearranged without changing the number of black nodes in any path
     * Those are all 5 cases that could arise in insertion
     *   Search and Delete - in average O(logn) and worst cases also!
-    * 
+ 
+ 
+
+# Lesson 6
+## Graphs (Network)
+* Similar to tress, (Nodes, Edges)
+* Tree is a specific type of graph 
+* Graph - you can start anywhere and you can follow some path back to the start
+* Edges can store data too!!!
+* Edges can have Direction
+* *Directed Graph* - graph where edges have a sense of direction
+* In Directed graphs you can have two edges between the same two node
+* Cycles might leed to infinite loops, so when you take a graph as an input, be sure that its acyclic- has no cycles
+* **DAG** - Directed Acyclic graph 
+* **Connectivity**
+        * **Disconnected graph** - has some vertex, that can't be reached by others vertices, one vertex off with no edges
+        * Disconnected graphs are very similar whether the graph's directed or undirected—there is some vertex or group of vertices that have no connection with the rest of the graph
+        * In graphs some nodes may not be connected at all or connected components (2 mini graphs with no connection between each other)
+        * **Connected** graph has no disconnected vertices 
+        *  Connectivity Principle - minimum number of elements that need to be removed to make a graph disconnceted 
+        *  Use connectivy to answer the questions which graph is stronger
+        *  **Weakly Connected** - A directed graph is weakly connected when only replacing all of the directed edges with undirected edges can cause it to be connected. Imagine that your graph has several vertices with one outbound edge, meaning an edge that points from it to some other vertex in the graph. There's no way to reach all of those vertices from any other vertex in the graph, but if those edges were changed to be undirected all vertices would be easily accessible.
+        * **Strongly Connected** Strongly connected directed graphs must have a path from every node and every other node. So, there must be a path from A to B AND B to A.
+* **Graph Representation**
+* We can use OOP's, Classes, and create Vertex and Edge objects
+* There are several ways to represent connections on simple graphs using lists
+*  Ex/ Edge list, [[0, 1], [1, 2] ...] 2 elements - 1 edge
+*  Edge list - list of other lists - **2D** list 
+*  Ex/ Adjacency List - in AL, your vertices normally have an ID number that corresponds to the index in an array. Each space in array is used to store a list of nodes that the node with this id is adjacent to. на индексе 1 - сохраняется список nodes которые связанны с элементом 1
+*   In an adjacency list, your vertices normally have an id number that corresponds to the index in an array. Also 2D
+*   **Adjacency Matrix**
+*   2D array, with all lists inside of the same length. Matrix also called a rectangular array
+*   Indicies of outer array represents nodes with those ids. And List inside still represents which nodes are adjacent 
+*   List inside represents which nodes are adjacent. Inner list has one slot for every node in the array, if theres an adge between these two nodes a 1 goes into the array, if no edge 0
+*   Place on every line where the row number equals the column number is always 0, unless there is an edge that started and ended with the same node
+*   In matrix 1 edge shows up twice (2, 3)(3, 2)
+
+
+
+
+
+
+
+
+
+
+
+
+

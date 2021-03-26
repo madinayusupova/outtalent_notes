@@ -229,8 +229,37 @@
 * We start with first node, mark it "seen", visit adjacent node, mark it, add it to QUEUE (first in, first out) , we go back to that first node and visit everything adjacent, marking each seen and adding them to queue. When we've run out of edges we can just dequeue a node from the queue and use it as next starting place. We again look at every node adjacent to that one, add each one to the queue, until no options will left
 * BFS is like creating tree from a graph, where starting node becomes a root. Adjacent nodes is the next level nodes in the tree.
 * Efficiency O(|e|+|V|)
-* 
-* 
+
+
+### Eularian Path (read like oilerian)
+* Type of path
+* Path a specific route in traversal or search.
+* Eularian path - path that traverse through every edge in graph at least once
+* Basic Eularian path - start at one node, traverse all edges and might end up at at different node (without travelling over edge twicely)
+* Eulerian cycle - traverse every edge only once and end up at the same node that you started with 
+* Not every graph is capable having an eularian path
+* Graphs can only have Eulerian cycles if vertices have an even number of edges(degree) connected to them.
+* For Eulerian path, its ok for graph to have two nodes with an odd degree, if they start and end of path
+* Quick algorithm for finding Eulerian cycles: start at one vertex follow edges until you return back to that vertex. If you didn't encounter every edge, you can start from an unseen edge connected to a node _you've already visited_. Continue this process until you've seen every edge in the graph once . Then you can simply add the paths together, combining them at the nodes they have in common.
+* Efficiency - O(E)
+* **Hamiltonian Paths**
+* Path that must go through every vertex once.
+* Hamiltonian cycle will start and end with the same vertex.
+* Trying to decide whether a graph has a Hamiltonian path,is a famous issue in computer science called the Hamiltonian path problems.
+
+
+# Lesson 7
+## Case Studies in Algorithms 
+### Shortest Path Problem 
+  * About finding the shortest path in graph
+  *  When edges stores data (number) (weighted edges), The shortest path is the one where the sum of the edges is as small as possible.
+  *  If graph edges unweighted, the shortest path would just be the one with the fewest number of edges.
+  *  Solution depends on nature of graph 
+  *  For unweighted graph, its BFS, you start at one node and visit the closest nodes first, slowly moving out to more distant nodes until you find the one that you were looking for.
+  #### Dijkstra's AlgorithmS
+  * s
+  
+    
 
 
 

@@ -257,22 +257,60 @@
   *  Solution depends on nature of graph 
   *  For unweighted graph, its BFS, you start at one node and visit the closest nodes first, slowly moving out to more distant nodes until you find the one that you were looking for.
   #### Dijkstra's AlgorithmS
-  * s
+  * Solution to the shortest path problem for weighted undirected graphs is called Dijkstra's Algorithm
+  * We begin by giving all vertices a distance value.A distance is the sum of edge weights on a path between our starting point and whatever vertex we're on.At the end of the algorithm, this distance will be the distance of the shortest path. The distance value we start with is infinity. This is a placeholder value that will update whenever we discover a node and have an actual distance to store.The node we're starting with will have a distance of zero.
+  * A common implementation of Dijkstra's uses a min priority queue, where the element with minimum distance (priority) in our case, can be removed efficiently
+  * We store all of our nodes in the priority queue and use extract min to take out the minimum element, the only one with a distance of zero. We will follow each edge and update the node on the other side with a distance value, which is just the weight of the edge.
+  * We'll always pick the node with the smallest distance value, Because we always pick the node with the lowest distance, Dijkstra's is often called a greedy algorithm. The philosophy for this class of algorithms is pick whatever option looks best at the moment.
+  * We keep going, extracting the minimum from our queue and exploring adjacent elements, until the node we're looking for has been extracted from the queue or everything else has a distance of infinity. Which means the path we're looking for doesn't exist.
+  * Runtime  O(v^2)
+  * Dijkstra's Algorithm works only with DAGs - Directed acyclic graphs
   
+  ### Knapsack Problem (Backpack)
+  * Theoretical knapsack with a limited weight capacity, and more items that can possibly fit in it.
+  * Each item has a weight and a value.
+  * The question here is, how can I optimize the total value of items in my knapsack, given the weight constraint?
+  * First thought: just put the objects with the highest values in first.
+  * But what if putting the two elements with the highest values hit the weight limit, but putting all the other elements in together would actually fit and have a higher value?
+  * This problem describes an optimization issue that crops up often.
+  * we could try every combination of objects and just pick the one that's best, also called the **brute force solution**
+  * The runtime O(2^n) where n is the number of objects.
+  #### Faster Algorithm 
+  * Lets try to maximize value for smallest possible weight, then kept adding them together until we had our maximum weight.
+  * We start by creating an array, which we'll use to store the maximum possible value for every weight up into our weight limit, the indices in the array represent those weights.
+  * Initially value for every index(weight) is 0
+  * Ex/ Take the object with weight 2. We can update the value at index two to the value of the object,then we'll update everything after it as well with the same value. Even if our knapsack can hold six, we've only seen one object so far, so we need to base that best value off one object. We look at the next object (weight 5) Again we can't change anything until index five. The value of this object is bigger than the max and it takes up the whole weight. so compare each object with value at it's index in array. Also check values of addends of particular index, and choose biggest value
+  * We go through every object and check if it can increase the maximum value of every possible weight up to our maximum weight. Thus, the runtime O(nW), where W is the weight limit of our knapsack and n is the number of elements.
+  * This is a pseudo polynomial time solution. A true polynomial runtime wouldn't have a variable besides n. I reiterate, polynomial time algorithms are much faster than exponential time algorithms for big numbers. So the solution here is generally faster.
+ 
+### Dynamic Programming
+* If complicated problem that seems to require trying every combination to find the solution, you need to ask yourself, **can I break this problem into subproblems**? If the answer is yes, then you've got a problem with a **dynamic programming** solution.
+* Ploblems like knapsack problem run much faster by breaking it into subproblem 
+* Ex/ In the Knapsack the subproblem was finding the answer for a smaller weight. You begin by solving for something like a base case, a subproblem somsmall that the answer is very simple or trivial to compute. We started with one object. With only one thing to consider, finding the maximum possible value for any weight was simple.
+* Another common feature of a dynamic programming solution is a **lookup table** that stores solutions to subproblems. We stored the maximum values for different weight limits in our lookup table.
+* Dynamic programming solutions take advantage of these **2** things:
+    i. solving the problem for a trivial case 
+    ii. storing the solution in a lookup table
+    by using them to slowly add complexity to a problem.
+* Another feature of a dynamic programming solution is an equation used at each step as you add complexity.
+* The equation often combines some values previously computed in the lookup table, sometimes with each other and sometimes with a new value you introduce like the value of whatever object you're looking at.
+* **Memoization** - using the values already stored in the table, as new objects added. No need to compute every time
+* Memoization is hidden power of dynamic programming. You compute and save solutions to smaller problems. Then you don't need to calculate them again for more complex problems.
+* 
+### Travelling Salesman Problem - Задача о коммивояжере
+* What's the fastest way for our salesman to travel between every city and return home?
+* It's an Optimization Problem 
+* We have a complicated graph and we're looking for the optimal route. TSP is used in everything from microchip design to DNA sequencing.
+* TSP is falls into special class of problems called **NP-Hard**
+* NP-Hard problems don't have a known algorithm that can solve them in polynomial time.
+* Polynimial time - ex/ O(n^2), O(n), O(2)
+* The Knapsack problem is actually also an NP-Hard problem. The solution we looked at was in Pseudo-Polynomial time and no true polynomial time solution is known yet.
+* Since the problem is so difficult, there are two classes of algorithms considered solutions:
+    1. **Exact Algorithms** - which don't happen in polynomial time but will get us the correct answer.
+    2. **Approximation Algorithms** -  which don't always find the exact optimal solution but generally find a near optimal solution. They tend to run in a more reasonable amount of time, and several are even polynomial time.
+           * One of the most famous, called Christofides algorithm, works by turning a graph into a tree, where the starting note is the root creating and traversing through it in a particularly intelligent way. The algorithm guarantees that the path it produces will be at most 50% longer than the shortest route.
+           
+* **The Brute Force** solution to TSP has the same philosophy as the one for Knapsack. Find every possible combination and pick the best one, but it takes significantly longer. **O(n!)**
+* Dynamic programming solutions for TSP.The most famous one is the **Held-Karp Algorithm.** However, even the dynamic programming solutions are slow. O((n^2)(2^n))
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

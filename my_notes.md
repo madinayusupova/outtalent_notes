@@ -38,5 +38,9 @@ print(filtered_names)
 * dict comprehension to create dict with fruit name as keys
 * {f:len(f) for f in fruits}
 * dict_123 = {value: key for key, value in dict_abc.items()}
-* 
+
+
+**Libraries**
+* from fractions import gcd   - greator common divisor
+* collections.Counter - A Counter is a dict subclass for counting hashable objects. It is a collection where elements are stored as dictionary keys and their counts are stored as dictionary values. 
 

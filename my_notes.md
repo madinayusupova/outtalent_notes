@@ -44,3 +44,5 @@ print(filtered_names)
 * from fractions import gcd   - greator common divisor
 * collections.Counter - A Counter is a dict subclass for counting hashable objects. It is a collection where elements are stored as dictionary keys and their counts are stored as dictionary values. 
 
+**Hacks**
+* ceiling division = (-(-x // y))

@@ -47,3 +47,6 @@ print(filtered_names)
 
 **Hacks**
 * ceiling division = (-(-x // y))
+
+**Notes**
+* Recursion takes space complexity O(n) - since stack of recursive function takes up a place :( :D
